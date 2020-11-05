@@ -13,8 +13,20 @@ const Dialogs = (props) => {
 
     let dialogsElements = props.state.dialogs.map(  d => <DialogItem name={d.name} id={d.id}/>  )
 
+    let newPostP = React.createRef()
+
+    let PostP = () =>{
+        let text = newPostP.current.value;
+        alert(text);
+    }
     return (
         <div className={s.dialogs}>
+            <div>
+                <textarea ref={newPostP}></textarea>
+            </div>
+            <div>
+                <button onClick={PostP}>add post</button>
+            </div>
             <div className={s.dialogsItems}>
 
                 {dialogsElements}
